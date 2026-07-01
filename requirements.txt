@@ -1,0 +1,10 @@
+# Core LLM + orchestration
+langchain-anthropic>=0.3.0
+langgraph>=0.2.0
+langchain-core>=0.3.0
+
+# Document loading
+pypdf>=5.0.0
+
+# Config
+python-dotenv>=1.0.0
