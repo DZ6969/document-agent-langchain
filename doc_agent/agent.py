@@ -6,8 +6,8 @@ example of an LLM-driven agent (LangChain tools + LangGraph orchestration).
 """
 from __future__ import annotations
 
+from langchain.agents import create_agent
 from langchain_core.tools import tool
-from langgraph.prebuilt import create_react_agent
 
 from .config import get_llm
 from .extract import extract_invoice
@@ -40,7 +40,7 @@ def build_agent(document_text: str, model: str | None = None):
         return answer_question(document_text, question, model=model)
 
     tools = [read_document, extract_invoice_fields, answer_from_document]
-    return create_react_agent(llm, tools, prompt=_SYSTEM)
+    return create_agent(llm, tools, system_prompt=_SYSTEM)
 
 
 def run_agent(document_text: str, task: str, model: str | None = None) -> str:
